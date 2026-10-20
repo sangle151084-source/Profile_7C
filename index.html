@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#070b16">
+<meta name="description" content="CLASS 7C — hồ sơ lớp, thành viên và thời khóa biểu.">
+<title>CLASS 7C // CYBER CLASS</title>
+<style>
+:root{--bg:#070b16;--panel:#0c1424;--panel2:#101d31;--line:#1c3550;--cyan:#42f5d4;--blue:#559cff;--text:#eef7ff;--muted:#9bb0c7;--pink:#ff5e9c;--radius:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 12% 5%,#12365a88,transparent 38%),radial-gradient(ellipse at 90% 35%,#063c3b55,transparent 34%),linear-gradient(#070b16,#080e1c 60%,#060a13)}
+#stars{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:.7}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer}
+.wrap{width:min(1160px,calc(100% - 32px));margin:auto}.topbar{position:sticky;top:0;z-index:20;background:#070b16d9;border-bottom:1px solid #24445a;backdrop-filter:blur(16px)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.08em}.brandmark{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--cyan);border-radius:12px;color:var(--cyan);box-shadow:0 0 22px #42f5d444;font-size:13px}.brand span:last-child{color:var(--cyan)}.navlinks{display:flex;gap:8px;align-items:center}.navlinks a,.navlinks button{font-size:13px;color:var(--muted);padding:10px 12px;border:1px solid transparent;background:none;border-radius:10px}.navlinks a:hover,.navlinks button:hover{color:var(--cyan);border-color:#42f5d455;background:#42f5d40c}.menu-btn{display:none}
+.hero{padding:76px 0 54px;display:grid;grid-template-columns:1.15fr .85fr;gap:38px;align-items:center;min-height:490px}.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--cyan);border:1px solid #42f5d455;background:#42f5d40c;border-radius:999px;padding:8px 12px;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.pulse{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);animation:pulse 1.6s infinite}
+h1{font-size:clamp(48px,8vw,94px);line-height:.96;letter-spacing:-.065em;margin:22px 0 20px;font-weight:950}h1 .glow{color:var(--cyan);text-shadow:0 0 30px #42f5d455}.glitch{position:relative;display:inline-block}.hero p{color:var(--muted);line-height:1.8;max-width:580px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.btn{border:1px solid #42f5d477;border-radius:12px;padding:12px 17px;background:#42f5d412;color:var(--cyan);font-weight:800;transition:.25s}.btn.primary{background:var(--cyan);color:#041411;box-shadow:0 0 28px #42f5d433}.btn:hover{transform:translateY(-3px);box-shadow:0 0 25px #42f5d433}.hero-card{position:relative;padding:22px;border:1px solid #42f5d455;border-radius:24px;background:linear-gradient(145deg,#11243aee,#0a1222ee);box-shadow:0 20px 80px #0008,inset 0 0 30px #42f5d409;overflow:hidden}.hero-card:before{content:"";position:absolute;inset:-50%;background:conic-gradient(from 0deg,transparent,#42f5d422,transparent 25%);animation:spin 14s linear infinite;pointer-events:none}.hero-card>*{position:relative}.card-top{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;letter-spacing:.12em}.orb{width:180px;height:180px;margin:30px auto 24px;border-radius:50%;display:grid;place-items:center;border:1px solid #42f5d488;box-shadow:0 0 35px #42f5d422,inset 0 0 30px #42f5d422;position:relative;background:radial-gradient(circle,#42f5d422,transparent 65%)}.orb:before,.orb:after{content:"";position:absolute;inset:13px;border:1px dashed #559cff99;border-radius:50%;animation:spin 18s linear infinite}.orb:after{inset:-9px;border-color:#42f5d455;animation-direction:reverse;animation-duration:24s}.orb strong{font-size:52px;letter-spacing:-.08em;color:var(--cyan);text-shadow:0 0 28px #42f5d4aa}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.stat{padding:12px 8px;background:#07101f;border:1px solid #20364c;border-radius:12px;text-align:center}.stat strong{display:block;color:var(--cyan);font-size:20px}.stat small{color:var(--muted);font-size:10px}
+section{padding:42px 0 54px;scroll-margin-top:80px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:22px}.kicker{font-size:11px;letter-spacing:.18em;color:var(--cyan);font-weight:900}.section-head h2{font-size:clamp(26px,4vw,40px);margin:8px 0 0;letter-spacing:-.04em}.section-head p{color:var(--muted);font-size:13px;max-width:400px;line-height:1.6;margin:0}
+.panel{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(145deg,#0d1728f2,#0a1120f2);padding:20px;box-shadow:0 12px 40px #0002}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}.field{background:#07101d;border:1px solid #263b54;color:var(--text);padding:12px 14px;border-radius:11px;outline:none;min-width:0}.field:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #42f5d415}.search{flex:1;min-width:190px}.members-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.member{position:relative;text-align:left;border:1px solid #20344c;background:linear-gradient(145deg,#101d30,#0a1220);color:var(--text);padding:16px;border-radius:15px;min-width:0;transition:transform .25s,border-color .25s,box-shadow .25s;overflow:hidden;animation:rise .55s both}.member:hover{transform:translateY(-5px);border-color:#42f5d4aa;box-shadow:0 10px 30px #42f5d411}.member .number{font-size:10px;color:var(--cyan);letter-spacing:.12em}.avatar{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#42f5d422,#559cff33);border:1px solid #42f5d466;display:grid;place-items:center;color:var(--cyan);font-weight:900;margin:14px 0 12px}.member strong{display:block;font-size:13px;line-height:1.45;overflow-wrap:anywhere}.member small{display:block;color:var(--muted);font-size:11px;margin-top:7px}.member.special{border-color:#42f5d4a8;background:linear-gradient(145deg,#12323a,#0c1728);box-shadow:inset 0 0 28px #42f5d40b}.member.special:after{content:"✦ FEATURED";position:absolute;right:-24px;top:13px;transform:rotate(35deg);background:var(--cyan);color:#041411;font-size:8px;font-weight:900;padding:4px 28px}.empty{color:var(--muted);padding:26px;text-align:center;grid-column:1/-1}
+.schedule-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px}.schedule{width:100%;border-collapse:collapse;min-width:700px;background:#0a1220}.schedule th,.schedule td{padding:13px 12px;border-bottom:1px solid #20334b;border-right:1px solid #20334b;text-align:center;font-size:12px}.schedule th{color:var(--cyan);background:#102337;letter-spacing:.06em}.schedule td{color:#dce8f4}.schedule td:first-child{color:var(--muted);font-weight:800}.schedule td.lesson{cursor:pointer;transition:.2s}.schedule td.lesson:hover{background:#42f5d418;color:var(--cyan)}.schedule td.rest{color:#60748b}.switcher{display:flex;gap:7px}.switcher button{border:1px solid #2a4058;background:#0a1220;color:var(--muted);border-radius:10px;padding:10px 15px;font-size:12px;font-weight:800}.switcher button.active{background:var(--cyan);color:#041411;border-color:var(--cyan)}
+.credit{display:grid;grid-template-columns:1fr 1fr;gap:12px}.credit-card{border:1px solid var(--line);background:#0c1626;padding:18px;border-radius:15px}.credit-card small{color:var(--cyan);letter-spacing:.12em;font-size:10px}.credit-card strong{display:block;margin-top:8px}.credit-card p{color:var(--muted);font-size:12px;margin-bottom:0}
+footer{border-top:1px solid var(--line);padding:24px 0 34px;color:var(--muted);font-size:12px}.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.modal{position:fixed;inset:0;z-index:50;background:#02050bd9;display:none;place-items:center;padding:18px;backdrop-filter:blur(10px)}.modal.open{display:grid}.modal-box{width:min(460px,100%);border:1px solid #42f5d477;border-radius:22px;padding:24px;background:#0b1525;box-shadow:0 0 70px #42f5d41c;animation:rise .25s both}.modal-head{display:flex;justify-content:space-between;align-items:center}.close{background:#14243a;border:1px solid #2a4058;color:var(--text);border-radius:9px;width:36px;height:36px}.modal-avatar{width:76px;height:76px;border-radius:22px;display:grid;place-items:center;font-size:26px;font-weight:900;color:var(--cyan);background:#42f5d414;border:1px solid #42f5d477;margin:20px 0}.modal-box h3{font-size:25px;margin:0 0 7px}.modal-box p{color:var(--muted);line-height:1.7}.modal-tag{display:inline-block;padding:7px 10px;border-radius:8px;background:#42f5d411;border:1px solid #42f5d433;color:var(--cyan);font-size:11px}
+.toast{position:fixed;bottom:18px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#102337;border:1px solid #42f5d466;color:var(--cyan);padding:11px 16px;border-radius:11px;font-size:12px;transition:.25s;z-index:60}.toast.show{opacity:1;transform:translate(-50%,0)}
+@keyframes pulse{50%{opacity:.35;transform:scale(.7)}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:48px;gap:25px}.hero-card{max-width:520px;width:100%;margin:auto}.members-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.navlinks{gap:0}.navlinks a{padding:9px 7px;font-size:11px}.section-head{align-items:start;flex-direction:column}}
+@media(max-width:520px){.wrap{width:calc(100% - 22px)}.nav{min-height:60px}.brand{font-size:12px}.brandmark{width:34px;height:34px}.navlinks a{font-size:10px;padding:8px 5px}.hero{padding:42px 0 30px;min-height:0}h1{font-size:58px}.hero-card{padding:17px}.orb{width:145px;height:145px}.orb strong{font-size:44px}.members-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.member{padding:13px}.panel{padding:12px}.credit{grid-template-columns:1fr}.section-head h2{font-size:29px}.schedule th,.schedule td{padding:11px 9px}}
+</style>
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<header class="topbar"><div class="wrap nav">
+  <a class="brand" href="#home"><span class="brandmark">7C</span><span>CLASS <span>UNIVERSE</span></span></a>
+  <nav class="navlinks" aria-label="Điều hướng"><a href="#members">Thành viên</a><a href="#schedule">Thời khóa biểu</a><a href="#credits">Credits</a></nav>
+</div></header>
+<main>
+<div class="wrap">
+<section class="hero" id="home">
+  <div>
+    <div class="eyebrow"><span class="pulse"></span> NGUYEN HUE SCHOOL · 2026—2027</div>
+    <h1><span class="glitch">CLASS</span><br><span class="glow">7C_</span></h1>
+    <p>Mỗi thành viên là một mảnh ghép. Mỗi kỷ niệm là một dòng dữ liệu. Chào mừng đến với không gian số của lớp 7C — nơi lưu giữ hành trình của chúng ta.</p>
+    <div class="actions"><a class="btn primary" href="#members">⌘ Khám phá lớp</a><a class="btn" href="#schedule">▦ Xem thời khóa biểu</a></div>
+  </div>
+  <aside class="hero-card"><div class="card-top"><span>CLASS PROFILE / 7C</span><span>SYS.ONLINE ●</span></div>
+    <div class="orb"><strong>7C</strong></div>
+    <div class="stats"><div class="stat"><strong id="countStat">42</strong><small>THÀNH VIÊN</small></div><div class="stat"><strong>2026</strong><small>NĂM HỌC</small></div><div class="stat"><strong>∞</strong><small>KỶ NIỆM</small></div></div>
+  </aside>
+</section>
+
+<section id="members">
+  <div class="section-head"><div><div class="kicker">01 / PEOPLE DATABASE</div><h2>Thành viên <span style="color:var(--cyan)">7C</span></h2></div><p>Chọn một hồ sơ để mở thông tin. Tìm kiếm theo tên hoặc số thứ tự.</p></div>
+  <div class="panel"><div class="toolbar"><input class="field search" id="search" type="search" placeholder="⌕  Tìm tên thành viên..." aria-label="Tìm thành viên"><select class="field" id="sort" aria-label="Sắp xếp"><option value="number">STT tăng dần</option><option value="name">Tên A → Z</option></select></div><div class="members-grid" id="membersGrid"></div></div>
+</section>
+
+<section id="schedule">
+  <div class="section-head"><div><div class="kicker">02 / CLASS TIMETABLE</div><h2>Thời khóa biểu</h2></div><p>THCS Nguyễn Huệ · GVCN: Cô Phạm Thị Bích Thảo</p></div>
+  <div class="panel"><div class="toolbar" style="justify-content:space-between;align-items:center"><div class="switcher"><button class="active" data-session="morning">☀ Buổi sáng</button><button data-session="afternoon">☾ Buổi chiều</button></div><span style="font-size:11px;color:var(--muted)">Chạm vào tiết học để xem</span></div><div class="schedule-wrap"><table class="schedule"><thead id="scheduleHead"></thead><tbody id="scheduleBody"></tbody></table></div><p style="color:var(--muted);font-size:11px;line-height:1.7;margin:14px 2px 0">Buổi sáng: 07:00–10:40 · Buổi chiều: 13:20–16:00. Lịch hiển thị theo ảnh thời khóa biểu bạn cung cấp.</p></div>
+</section>
+
+<section id="credits">
+  <div class="section-head"><div><div class="kicker">03 / BUILT BY THE CLASS</div><h2>Project credits</h2></div></div>
+  <div class="credit"><div class="credit-card"><small>✦ WEBSITE AUTHOR</small><strong>Lê Trần Phú Sang · #29</strong><p>Tác giả ý tưởng và chủ sở hữu profile lớp 7C.</p></div><div class="credit-card"><small>⌘ CODING SUPPORT</small><strong>ChatGPT (OpenAI)</strong><p>Người hỗ trợ xây dựng mã nguồn HTML, CSS và JavaScript.</p></div></div>
+</section>
+</div>
+</main>
+<footer><div class="wrap footer-inner"><span>© 2026 CLASS 7C // CLASS UNIVERSE</span><span>DESIGNED WITH <span style="color:var(--cyan)">♥</span> FOR 7C</span></div></footer>
+
+<div class="modal" id="profileModal" role="dialog" aria-modal="true" aria-labelledby="modalName"><div class="modal-box"><div class="modal-head"><span class="kicker">MEMBER PROFILE / <span id="modalNumber">01</span></span><button class="close" id="closeModal" aria-label="Đóng">✕</button></div><div class="modal-avatar" id="modalAvatar">7C</div><h3 id="modalName">Tên thành viên</h3><span class="modal-tag" id="modalTag">CLASS 7C MEMBER</span><p id="modalDescription">Hồ sơ thành viên lớp 7C.</p><button class="btn" id="modalDone">Đóng hồ sơ</button></div></div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const members = [
+"Phùng Ngọc Kim Anh","Phạm Hoàng An","Nguyễn Hoàng Gia Bảo","Nguyễn Thiên Bảo","Phạm Ngọc Gia Bảo","Đặng Bảo Châu","Đỗ Minh Duy","Nguyễn Tuấn Đạt","Phạm Văn Hào","Dương Huỳnh Thiên Hân","Nguyễn Hoàng Gia Hân","Phan Thị Thu Hiền","Phạm Trần Ngọc Hoa","Phan Nguyễn Gia Huy","Trần Hoàng Khải","Vũ Duy Khánh","Bùi Mạnh Khôi","Nguyễn Tuấn Minh","Nguyễn Đặng Trúc My","Nguyễn Ngọc Trúc My","Nguyễn Thị Trà My","Dương Hiếu Nghĩa","Nguyễn Đức Nghĩa","Phạm Thị Bích Ngọc","Nguyễn Tiến Nhật","Đinh Nguyễn Quỳnh Như","Phan Trọng Phúc","Phan Nguyễn Nhật Quỳnh","Lê Trần Phú Sang","Nguyễn La Su","Ngô Thị Minh Tâm","Ngô Quốc Thái","Cao Hoàng Gia Thiên","Nguyễn Thanh Thúy","Vũ Cao Tiến","Phạm Nguyễn Bảo Trân","Phạm Thái Trường","Nguyễn Hoàng Anh Tuấn","Nguyễn Thái Tuấn","Nguyễn Thị Anh Tuyết","Đỗ Phạm Thục Uyên","Đỗ Nguyễn Tường Vy"
+].map((name,i)=>({number:i+1,name}));
+const grid=document.getElementById('membersGrid'), search=document.getElementById('search'), sort=document.getElementById('sort');
+const initials=n=>n.trim().split(/\s+/).slice(-2).map(s=>s[0]).join('').toUpperCase();
+function renderMembers(){
+ const q=search.value.trim().toLocaleLowerCase('vi');
+ let list=members.filter(m=>m.name.toLocaleLowerCase('vi').includes(q)||String(m.number)===q);
+ if(sort.value==='name')list.sort((a,b)=>a.name.localeCompare(b.name,'vi'));
+ grid.innerHTML='';
+ if(!list.length){grid.innerHTML='<div class="empty">Không tìm thấy thành viên phù hợp.</div>';return}
+ list.forEach((m,i)=>{const b=document.createElement('button');b.className='member'+(m.number===29?' special':'');b.style.animationDelay=Math.min(i*25,300)+'ms';b.innerHTML=`<span class="number">NO. ${String(m.number).padStart(2,'0')}</span><span class="avatar">${initials(m.name)}</span><strong></strong><small>${m.number===29?'✦ Tác giả website':'Thành viên lớp 7C'}</small>`;b.querySelector('strong').textContent=m.name;b.addEventListener('click',()=>openProfile(m));grid.appendChild(b)});
+}
+search.addEventListener('input',renderMembers);sort.addEventListener('change',renderMembers);
+const modal=document.getElementById('profileModal');
+function openProfile(m){document.getElementById('modalNumber').textContent=String(m.number).padStart(2,'0');document.getElementById('modalAvatar').textContent=initials(m.name);document.getElementById('modalName').textContent=m.name;document.getElementById('modalTag').textContent=m.number===29?'✦ TÁC GIẢ WEBSITE · #29':'CLASS 7C MEMBER · #'+String(m.number).padStart(2,'0');document.getElementById('modalDescription').textContent=m.number===29?'Tác giả website profile lớp 7C. Người hỗ trợ code: ChatGPT (OpenAI).':`Hồ sơ của ${m.name}, thành viên số ${m.number} lớp 7C. Phần giới thiệu và ảnh đại diện có thể bổ sung sau.`;modal.classList.add('open');document.getElementById('closeModal').focus()}
+function closeModal(){modal.classList.remove('open')}
+document.getElementById('closeModal').addEventListener('click',closeModal);document.getElementById('modalDone').addEventListener('click',closeModal);modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+const days=['THỨ 2','THỨ 3','THỨ 4','THỨ 5','THỨ 6','THỨ 7'];
+const timetable={
+ morning:[
+ ['HĐTN - cô Thảo-TA','Toán - Thầy Nga','KHTN - thầy Bảo','Văn - Cô Ánh-văn','GDTC - thầy Phước','Nghỉ'],
+ ['HĐTN - cô Thảo-TA','M.Thuật - cô Quỳnh','KHTN - thầy Bảo','CNghệ - cô Kiều','GDĐP - Cô N.Thảo-Tin','Nghỉ'],
+ ['Toán - Thầy Nga','Văn - Cô Ánh-văn','L.Sử&Đ.lí - cô Cúc','T.Anh - cô Thảo-TA','GDCD - cô Huế','Nghỉ'],
+ ['Toán - Thầy Nga','Văn - Cô Ánh-văn','Văn - Cô Ánh-văn','A.Nhạc - cô Quỳnh','Toán - Thầy Nga','Nghỉ'],
+ ['Nghỉ','Nghỉ','Nghỉ','Nghỉ','Nghỉ','Nghỉ']
+ ],
+ afternoon:[
+ ['Tin - Cô N.Thảo-Tin','KHTN - thầy Bảo','T.Anh - cô Thảo-TA','Nghỉ','Nghỉ','Nghỉ'],
+ ['L.Sử&Đ.lí - cô Cúc','L.Sử&Đ.lí - cô Cúc','HĐTN - cô Thảo-TA','Nghỉ','Nghỉ','Nghỉ'],
+ ['KHTN - thầy Bảo','T.Anh - cô Thảo-TA','GDTC - thầy Phước','Nghỉ','Nghỉ','Nghỉ'],
+ ['Nghỉ','Nghỉ','Nghỉ','Nghỉ','Nghỉ','Nghỉ'],
+ ['Nghỉ','Nghỉ','Nghỉ','Nghỉ','Nghỉ','Nghỉ']
+ ]};
+let session='morning';
+function renderSchedule(){document.getElementById('scheduleHead').innerHTML='<tr><th>TIẾT</th>'+days.map(d=>`<th>${d}</th>`).join('')+'</tr>';document.getElementById('scheduleBody').innerHTML=timetable[session].map((row,i)=>'<tr><td>TIẾT '+(i+1)+'</td>'+row.map((v,j)=>`<td class="${v==='Nghỉ'?'rest':'lesson'}" ${v==='Nghỉ'?'':'tabindex="0" role="button"'} data-day="${days[j]}" data-lesson="${v}" data-period="${i+1}">${v}</td>`).join('')+'</tr>').join('');document.querySelectorAll('.schedule td.lesson').forEach(td=>{const show=()=>toast(`${td.dataset.day} · Tiết ${td.dataset.period}: ${td.dataset.lesson}`);td.addEventListener('click',show);td.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show()}})})}
+document.querySelectorAll('[data-session]').forEach(b=>b.addEventListener('click',()=>{session=b.dataset.session;document.querySelectorAll('[data-session]').forEach(x=>x.classList.toggle('active',x===b));renderSchedule()}));
+let toastTimer;function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2600)}
+  
